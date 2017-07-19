@@ -1,4 +1,4 @@
-package com.creditll.jms;
+package com.queueing.jms.producer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
@@ -11,7 +11,7 @@ public class ProducerServiceImpl implements ProducerService {
 
     @Autowired
     JmsTemplate jmsTemplate;
-    @Resource(name = "queueDestination")
+    @Resource(name = "topicDestination")
     Destination destination;
     public void sendMessage(final String message) {
         //使用JmsTemplate发送消息

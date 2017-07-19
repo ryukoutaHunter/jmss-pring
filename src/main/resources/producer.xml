@@ -9,26 +9,13 @@
        http://www.springframework.org/schema/cache
        http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-    <context:annotation-config/>
 
-    <!--ActiveMQ为我们提供的ConnectionFactory-->
-    <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-        <property name="brokerURL" value="tcp://127.0.0.1:61616"/>
-    </bean>
-    <!--spring jms为我们提供的连接池-->
-    <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
-        <property name="targetConnectionFactory" ref="targetConnectionFactory"/>
-    </bean>
+    <import resource="common.xml"/>
 
-    <!--一一个队列目的地,点对点-->
-    <bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
-        <constructor-arg value="queue"/>
-    </bean>
-
-    <!---->
+    <!--配置jmsTemplate,用于发送消息-->
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
         <property name="connectionFactory" ref="connectionFactory"/>
     </bean>
 
-    <bean class="com.creditll.jms.ProducerServiceImpl"/>
+    <bean class="com.queueing.jms.producer.ProducerServiceImpl"/>
 </beans>
