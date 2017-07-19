@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jmss-pring:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="jms-spring.war">
+      <element id="artifact" artifact-name="jmss-pring:war exploded" />
+    </root>
+  </artifact>
+</component>
