@@ -10,5 +10,6 @@ public class AppProducer {
         for (int i = 0; i < 100; i++) {
             service.sendMessage("test"+i);
         }
+        System.out.println("你好!!!");
     }
 }
